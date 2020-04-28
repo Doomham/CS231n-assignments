@@ -1,0 +1,16 @@
+kNN summary
+
+1.流程
+  1.1 kNN实现
+  原理上，kNN分为训练和test两个方面。
+  训练即remember training data，没什么好说的。
+  test的内容主要就是计算两幅图像之间的L2（Euclidean）distance，记住外边有个根号。计算的方面assignment中一步步给了提示：两个循环，一个循环和不用循环。可以看到不用任何循环的执行速度非常的快，如何用矩阵表达并合理应用broadcast是这个作业想交给我们的一个方面。
+  1.2 hyper parameter的选择
+  在实现了kNN的具体算法之后需要进行hyper parameter(即k)的选择，这里用了five-cross validation进行了选择。将原来的training set进一步划分为training set和validation set。选择五次的accuracy的mean最大的k值。
+
+2.一些记录
+  ①正如前面所言，这个作业一个目的是为了让我们应用broadcast和vectorize的办法进行编程。
+  ②numpy.sum可以选择求和所有，可以列求和，可以行求和。
+  ③numpy.stack(vstack,hstack)进行矩阵合并联结
+  ④numpy.array_split进行切分数据
+  ⑤numpy.argsort进行升降序排序

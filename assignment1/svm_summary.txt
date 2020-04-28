@@ -1,0 +1,15 @@
+svm summary
+1. multiclass SVM算法
+  选择hinge loss和l2正则项构造loss function，然后用sdg使得loss最小。
+2.details
+    这次的难处依然在与vectorize和求导。
+    用到梯度下降就可以采用numerically的方法判断你的梯度算的对不对。
+    在编写具体的算法时，采用了数量较少的集合来做（X_dev,y_dev)。这样，即便是用了几个loop也能较快得出结果，用来检验vectorize的方法得到的结果（loss和graident）是否正确。
+    score_correct = score[[np.arange(X.shape[0])], y]   可以用arr[[],[]]进行访问
+    
+    vectorize the formulation:
+        key point:  δj = maximum(0, sj - syi + 1) > 0:   则dW对应jth列+X[i],yith列-X[i]
+   
+    use np.random.choice to generate indices.
+    use a small value for num_iters as you develop your validation code so that the SVMs don't take much time to train.
+    
