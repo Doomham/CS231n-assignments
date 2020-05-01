@@ -1,2 +1,2 @@
-# CS231n-assignments
-CS231n作业的pytorch实现  
+## CS231n: Convolutional Neural Networks for Visual Recognition
+### CS231n作业的pytorch实现  
